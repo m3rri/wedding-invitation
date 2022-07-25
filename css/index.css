@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'MaruBuri-Regular';
+  src: url('../font-maruburi-naver/MaruBuri-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MaruBuri-Regular';
+  src: url('../font-maruburi-naver/MaruBuri-SemiBold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, MaruBuri-Regular, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  letter-spacing: -0.03em;
+  font-style: italic;
+  font-size: 17px;
+}
+
+@media only screen and (min-width: 480px) {
+  #root{
+    position: absolute;
+    left: 50%;
+    width: 480px;
+    height: 900px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transform: translateX(-50%);
+  }
+
+  #root::before{
+    content: "　　[ ! mobile only ]　　";
+    background-color: #F5CAA4;
+  }
+}
