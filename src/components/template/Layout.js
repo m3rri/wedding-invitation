@@ -58,7 +58,7 @@ const Layout = ({children})=>{
         setTransformBride("translate(-90%)");
         setTransformGroom("translate(90%)");
         setEmogi("none");
-    }, []);
+    }, [children]);
 
     return <>
         <header css={progressBack}>
