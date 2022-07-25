@@ -11,7 +11,7 @@ const App = ()=>{
   useEffect(()=>{
     const {innerHeight} = window;
     setPageHeight(innerHeight);
-  });
+  },[]);
 
   return <Layout>
       <Article height={pageHeight} forwardRef={mainRef}>
