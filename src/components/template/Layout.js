@@ -55,6 +55,9 @@ const Layout = ({children})=>{
     useEffect(()=>{
         const {current} = (children.length ? children[0] : children).props.forwardRef;
         console.log(current.offsetHeight);
+        setTransformBride("translate(-90%)");
+        setTransformGroom("translate(90%)");
+        setEmogi("none");
     });
 
     return <>
