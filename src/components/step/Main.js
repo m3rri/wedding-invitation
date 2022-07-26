@@ -32,7 +32,44 @@ const borderBottom = css`
 const division = css`
     padding: 0 0.41em 0.41em;
     margin-bottom: 0.43em;  
-`
+`;
+
+const ball = css`
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid rgba(200,121,104,0.25);
+    z-index: 3;
+    text-decoration: none;
+    color: #333;
+    &:before {
+        content: '오시는 길👆';
+        font-size: 0.8em;
+        position: absolute;
+        width: 100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+`;
+
+const bounce = css`
+    animation: bounce_frames 0.5s;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+    animation-iteration-count: 14;
+    @keyframes bounce_frames {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(0, 5px, 0);
+        }
+    }
+`;
 
 const Main = ()=>{
     const wDay = `${Date.yyyy}.${Date.mm}.${Date.dd} ${Date.date} ${Date.HH}시 ${Date.MM}분`;
@@ -59,6 +96,7 @@ const Main = ()=>{
                 <div>{Site.site} {Site.hall}</div>
             </div>
         </div>
+        <a css={[ball,bounce]} href="#map"></a>
     </>;
 }
 

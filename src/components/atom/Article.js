@@ -14,10 +14,10 @@ const article = css`
     width: 100%;
 `;
 
-const Article = ({height, forwardRef, children})=>{
+const Article = ({height, forwardRef, background, children})=>{
     return <article
         css={article}
-        style={{height: `${height}px`}}
+        style={{height: height?`${height}px`:'100%', background: background}}
         ref={forwardRef}
     >
         {children}
