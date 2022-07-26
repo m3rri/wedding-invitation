@@ -96,7 +96,7 @@ const Main = ()=>{
                 <div>{Site.site} {Site.hall}</div>
             </div>
         </div>
-        <a css={[ball,bounce]} href="#map"></a>
+        <a css={[ball,bounce]} href="#map"> </a>
     </>;
 }
 
