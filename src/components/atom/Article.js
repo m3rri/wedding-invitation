@@ -17,7 +17,7 @@ const article = css`
 const Article = ({height, forwardRef, background, children})=>{
     return <article
         css={article}
-        style={{height: height?`${height}px`:'100%', background: background}}
+        style={{height: height?`${height}px`:'', background: background}}
         ref={forwardRef}
     >
         {children}

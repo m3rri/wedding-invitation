@@ -106,6 +106,7 @@ const Greeting = ({type})=>{
         <div css={greeting}>
             {GREETINGS.map((GREETING,i)=><GreetingP text={GREETING} key={i}/>)}
         </div>
+        <div css={divisionLine}/>
         <div css={people}>
             <People
                 before={`${NAME.G_FATHER}·${NAME.G_MOTHER}의 ${NAME.G_ORDER} `}
@@ -116,7 +117,6 @@ const Greeting = ({type})=>{
                 after={NAME.BRIDE.substring(1)}
             />
         </div>
-        <div css={divisionLine}/>
         <img
             src={`${process.env.PUBLIC_URL}/img/secondary.jpg`}
             css={picture}

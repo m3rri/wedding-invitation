@@ -24,7 +24,9 @@ const App = ()=>{
 
   useEffect(()=>{
     const {innerHeight} = window;
+    
     setPageHeight(innerHeight);
+
     window.addEventListener('contextmenu', e=>{
       e.preventDefault();
     });
