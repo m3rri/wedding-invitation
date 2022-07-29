@@ -13,3 +13,4 @@ const weddingDate = {
 };
 
 export default weddingDate;
+export {W_DAY, DAY_NAME};

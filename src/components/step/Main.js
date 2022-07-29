@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import NAME from '../../resource/People';
+import {NAME} from '../../resource/People';
 import Date from '../../resource/Date';
 import Site from '../../resource/Site';
 
