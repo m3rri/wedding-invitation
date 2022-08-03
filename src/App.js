@@ -7,6 +7,7 @@ import Greeting from "./components/step/Greeting";
 import Gallery from "./components/step/Gallery";
 import Calendar from "./components/step/Calendar";
 import Map from "./components/step/Map";
+import SendHeart from './components/step/SendHeart';
 
 const App = ()=>{
   const [pageHeight, setPageHeight] = useState(700);
@@ -17,6 +18,7 @@ const App = ()=>{
   const galleryRef = useRef();
   const calendarRef = useRef();
   const mapRef = useRef();
+  const heartRef = useRef();
 
   const greetingBackground = "rgba(200,121,104,0.05)";
   const galleryBackground = "rgba(200,121,104,0.05)";
@@ -39,7 +41,7 @@ const App = ()=>{
       <Article forwardRef={greetingRef} background={greetingBackground}>
         <Greeting type={type}/>
       </Article>
-      <Article height={pageHeight} forwardRef={galleryRef} background={galleryBackground}>
+      <Article forwardRef={galleryRef} background={galleryBackground}>
         <Gallery/>
       </Article>
       <Article forwardRef={calendarRef}>
@@ -47,6 +49,9 @@ const App = ()=>{
       </Article>
       <Article forwardRef={mapRef} background={mapBackground}>
         <Map/>
+      </Article>
+      <Article forwardRef={heartRef}>
+        <SendHeart/>
       </Article>
     </Layout>;
 }

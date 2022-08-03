@@ -16,6 +16,27 @@ const PHONE = {
     G_MOTHER: 'tel:01092063052',
     B_FATHER: 'tel:01089072507',
     B_MOTHER: 'tel:01064732507'
-}
-  
-export {NAME, PHONE};
+};
+
+const ACCOUNT = {
+    groom:[{
+        name: NAME.GROOM,
+        bank: '신한은행',
+        account: '110-258-259800'
+    },{
+        kakao: true,
+        name: '신랑',
+        account: '281006011000035848853992'
+    }],
+    bride:[{
+        name: NAME.B_FATHER,
+        bank: '국민은행',
+        account: '022-24-0561-224'
+    },{
+        kakao: true,
+        name: '신부',
+        account: '281006011161815290004942'
+    }]
+};
+
+export {NAME, PHONE, ACCOUNT};
