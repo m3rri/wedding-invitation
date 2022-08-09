@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import {NAME} from '../../resource/People';
 import Date from '../../resource/Date';
 import Site from '../../resource/Site';
+import { useState, useEffect } from "react";
 
 const bold = css`
     font-weight: bold;
@@ -71,8 +72,15 @@ const bounce = css`
     }
 `;
 
-const Main = ()=>{
+const Main = ({pageHeight})=>{
     const wDay = `${Date.yyyy}.${Date.mm}.${Date.dd} ${Date.date} ${Date.HH}시 ${Date.MM}분`;
+    const [imgMargin, setImgMargin] = useState(12);
+
+    useEffect(()=>{
+        if(pageHeight<=670){
+            setImgMargin(4);
+        }
+    }, [pageHeight]);
 
     return <>
         <div css={[border,outline]}/>
@@ -90,7 +98,7 @@ const Main = ()=>{
                     <div>저희 결혼합니다♥</div>
                 </div>
             </div>
-            <img src={`${process.env.PUBLIC_URL}/img/main.jpg`} alt="wedding main" width="100%" style={{margin: "12% 0"}}/>
+            <img src={`${process.env.PUBLIC_URL}/img/main.jpg`} alt="wedding main" width="100%" style={{margin: `${imgMargin}% 0`}}/>
             <div style={{margin: "auto 0 20%"}}>
                 <div style={{padding:"0 0 0.3em"}}>{wDay}</div>
                 <div>{Site.site} {Site.hall}</div>

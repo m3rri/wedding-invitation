@@ -34,7 +34,7 @@ const appLink = css`
     background: #efefef;
     display: flex;
     flex-direction: row;
-    padding: 20px 0;
+    padding: 20px 0 15px;
     width: 100%;
     span{
         font-size: 14px;
@@ -51,12 +51,13 @@ const appLink = css`
 const MapLink = ({name, src})=>{
     const url = name==='kakao' ? "https://map.kakao.com/link/search/웨딩스퀘어%20강변점"
     : "https://map.naver.com/v5/search/%EC%9B%A8%EB%94%A9%EC%8A%A4%ED%80%98%EC%96%B4%20%EA%B0%95%EB%B3%80%EC%A0%90/place/31761747";
-    const width = name==='kakao' ? 113 : 101;
+    const width = name==='kakao' ? 113 : 83;
+    const height = name==='kakao' ? 30 : 36;
 
     return <a href={url} target={'_blank'} rel={'noreferrer'}>
         <img
             src={src}
-            height={30} width={width}
+            height={height} width={width}
             alt="map application"
         />
     </a>;
@@ -116,8 +117,8 @@ const Map = ()=>{
     const mapMarkerImage = {
         src: `${process.env.PUBLIC_URL}/asset/map-marker.png`,
         size: {
-            width: 117.6,
-            height: 50
+            width: 140,
+            height: 48
         },
         options: {
             offset: {x: 25, y: 25}
@@ -130,7 +131,7 @@ const Map = ()=>{
             center={mapPosition}
             css={css`width: 100%; height: 210px;`}
             clickable={true}
-            level={3}
+            level={4}
         >
             <MapMarker
                 position={mapPosition}

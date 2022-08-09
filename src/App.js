@@ -36,7 +36,7 @@ const App = ()=>{
 
   return <Layout>
       <Article height={pageHeight} forwardRef={mainRef}>
-        <Main/>
+        <Main pageHeight={pageHeight}/>
       </Article>
       <Article forwardRef={greetingRef} background={greetingBackground}>
         <Greeting type={type}/>
