@@ -74,19 +74,29 @@ const bounce = css`
 
 const Main = ({pageHeight})=>{
     const wDay = `${Date.yyyy}.${Date.mm}.${Date.dd} ${Date.date} ${Date.HH}시 ${Date.MM}분`;
+    const [textMargin, setTextMargin] = useState(10);
     const [imgMargin, setImgMargin] = useState(12);
+    const [imgHeight, setImgHeight] = useState('');
+    const [fontSize, setFontSize] = useState(17);
 
     useEffect(()=>{
-        if(pageHeight<=670){
+        if(pageHeight<500){
+            setTextMargin(3);
+            setImgMargin(2);
+            setImgHeight('180px');
+            setFontSize(14);
+        }else if(pageHeight<=670){
+            setTextMargin(7);
             setImgMargin(4);
-        }
+            setFontSize(16);
+        } 
     }, [pageHeight]);
 
     return <>
         <div css={[border,outline]}/>
-        <div css={flexColumnWrapper} style={{position:"absolute"}}>
+        <div css={flexColumnWrapper} style={{position:"absolute", fontSize:`${fontSize}px`}}>
             <div style={{ marginTop: "20%"}}>
-                <div css={[flexColumnWrapper,bold]} style={{alignItems: "center", marginBottom: "10%"}}>
+                <div css={[flexColumnWrapper,bold]} style={{alignItems: "center", marginBottom: `${textMargin}%`}}>
                     <span>{Date.mm}월</span>
                     <span css={[border,borderBottom,division]}/>
                     <span>{Date.dd}일</span>
@@ -98,7 +108,13 @@ const Main = ({pageHeight})=>{
                     <div>저희 결혼합니다♥</div>
                 </div>
             </div>
-            <img src={`${process.env.PUBLIC_URL}/img/main.jpg`} alt="wedding main" width="100%" style={{margin: `${imgMargin}% 0`}}/>
+            <img
+                src={`${process.env.PUBLIC_URL}/img/main.jpg`}
+                alt="wedding main"
+                width="100%"
+                height={imgHeight}
+                style={{margin: `${imgMargin}% 0`}}
+            />
             <div style={{margin: "auto 0 20%"}}>
                 <div style={{padding:"0 0 0.3em"}}>{wDay}</div>
                 <div>{Site.site} {Site.hall}</div>

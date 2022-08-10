@@ -7,26 +7,32 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import {ACCOUNT} from '../../resource/People';
 
 const sendHeart = css`
-    align-items: center;
-    background: #efefef;
-    display: flex;
-    flex-direction: row;
-    padding: 1rem 0;
+    padding: 2rem 0;
     width: 100%;
     span{
-        font-size: 14px;
-        margin: 0 auto 0 1rem;
+        padding-bottom: 1rem;
+        display: block;
         &::before{
-            content: '마음 전하실 곳'
+            content: '마음 전해주실 곳';
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            padding-bottom: 0.5rem;
+        }
+        &::after{
+            content: '"신랑 신부에게 축하의 마음을 전해주세요"';
+            font-size: 14px;
         }
     }
     button{
-        box-shadow: 0px 3px 3px #ddd;
-        border: 0px solid #fff;
+        background: rgba(239,239,239, 0.4);
+        border: 1px solid #efefef;
         border-radius: 8px;
         cursor: pointer;
-        margin: 0 1rem;
-        padding: 1rem;
+        display: block;
+        margin: 0.5rem 25%;
+        padding: 0.7rem;
+        width: 50%;
     }
     button:hover{
         background: #efefef;

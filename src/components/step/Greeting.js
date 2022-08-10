@@ -91,11 +91,11 @@ const callBox = css`
 
 const Greeting = ({type})=>{
     let callTarget;
-    type = type || 'f';
+    type = type || '46';
     
-    if(type==='g'){
+    if(type==='67'){
         callTarget = [['신랑 아버지', PHONE.G_FATHER, faPhone], ['신랑 어머니', PHONE.G_MOTHER, faPhone]];
-    }else if(type==='b'){
+    }else if(type==='42'){
         callTarget = [['신부 아버지', PHONE.B_FATHER, faPhone], ['신부 어머니', PHONE.B_MOTHER, faPhone]];
     }else{
         callTarget = [['신랑', PHONE.GROOM, faComments], ['신부', PHONE.BRIDE, faComments]];

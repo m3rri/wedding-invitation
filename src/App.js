@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import {useParams} from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Article from './components/atom/Article';
 import Layout from "./components/template/Layout";
 import Main from "./components/step/Main";
@@ -11,7 +11,9 @@ import SendHeart from './components/step/SendHeart';
 
 const App = ()=>{
   const [pageHeight, setPageHeight] = useState(700);
-  const {type} = useParams();
+  const [searchParams] = useSearchParams();
+  const queryList = [...searchParams].filter(query=>query[0]==='type');
+  const type = queryList.length===0 ? '46' : queryList.map(query=>query[1])[0];
 
   const mainRef = useRef();
   const greetingRef = useRef();
