@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {isMobile} from 'react-device-detect';
 import { css } from "@emotion/react";
 import styled  from '@emotion/styled';
@@ -54,8 +54,31 @@ const Layout = ({children})=>{
     const [transformGroom, setTransformGroom] = useState("translate(90%)");
     const [emogi, setEmogi] = useState('none');
 
-    const progressCalculator = useCallback(async ()=>{
-        const {current} = (children.length ? children[0] : children).props.forwardRef;
+    useEffect(()=>{
+        const transformProgress = (scrollValueIndex, listLength)=>{
+            const percent = 100-(scrollValueIndex+1)/listLength*100;
+    
+            setTransformBride(`translate(-${percent}%)`);
+            setTransformGroom(`translate(${percent<0 ? 0 : percent}%)`);
+            if(percent<=0){
+                setEmogi('block');
+            }else{
+                setEmogi('none');
+            }
+        }
+
+        const getIndex = (scrollY, checkBottom, type)=>{
+            const {current} = (children.length ? children[0] : children).props.forwardRef;
+            const plusValue = type === 0 ? 80 : current.offsetHeight*0.4;
+            const articleListClone = getSortedHeightList(childHeightList, scrollY+plusValue);
+            const activeArticleIndex = articleListClone.length === childHeightList.length
+            ? articleListClone.indexOf(scrollY+plusValue)
+            : checkBottom
+            ? articleListClone.pop()
+            : articleListClone.indexOf(scrollY+plusValue)-1;
+    
+            return activeArticleIndex;
+        }
 
         const calculateProgress = ()=>{
             const {scrollY, innerHeight} = window;
@@ -70,33 +93,9 @@ const Layout = ({children})=>{
             const scrollY = document.querySelector("#root").scrollTop;
             const pageHeight = document.querySelector("#root").scrollHeight;
             const checkBottom = scrollY >= pageHeight-1000;
-
+    
             const progressIndex = getIndex(scrollY, checkBottom, 0);
             transformProgress(progressIndex, childHeightList.length);
-        }
-
-        function getIndex(scrollY, checkBottom, type){
-            const plusValue = type === 0 ? 80 : current.offsetHeight*0.4;
-            const articleListClone = getSortedHeightList(childHeightList, scrollY+plusValue);
-            const activeArticleIndex = articleListClone.length === childHeightList.length
-            ? articleListClone.indexOf(scrollY+plusValue)
-            : checkBottom
-            ? articleListClone.pop()
-            : articleListClone.indexOf(scrollY+plusValue)-1;
-
-            return activeArticleIndex;
-        }
-
-        function transformProgress(scrollValueIndex, listLength){
-            const percent = 100-(scrollValueIndex+1)/listLength*100;
-
-            setTransformBride(`translate(-${percent}%)`);
-            setTransformGroom(`translate(${percent<0 ? 0 : percent}%)`);
-            if(percent<=0){
-                setEmogi('block');
-            }else{
-                setEmogi('none');
-            }
         }
 
         if(children.length>0){
@@ -121,11 +120,8 @@ const Layout = ({children})=>{
                         });
             setChildHeightList(Array.from(list));
         }
-    }, [childHeightList, children]);
-
-    useEffect(()=>{
-        progressCalculator();
-    }, [progressCalculator]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [children]);
 
     return <>
         <header css={progressBack}>
