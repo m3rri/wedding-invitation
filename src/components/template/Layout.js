@@ -101,7 +101,7 @@ const Layout = ({children})=>{
         }
 
         const callRollingPaper = (index)=>{
-            if(index===2 || index===5){
+            if(index===5){
                 const iframe = children[5].props.forwardRef.current.querySelector('iframe');
                 const {src} = iframe.dataset;
                 if(iframe.src===''){
@@ -110,7 +110,7 @@ const Layout = ({children})=>{
                         iframe.onload = ()=>{
                             iframe.style.display = 'block';
                         }
-                    }, 1000);
+                    }, 1500);
                 }
             }
         }
