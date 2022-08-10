@@ -7,7 +7,8 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import {ACCOUNT} from '../../resource/People';
 
 const sendHeart = css`
-    padding: 2rem 0;
+    background: rgba(239,239,239, 0.3);
+    padding: 2rem 0 1rem;
     width: 100%;
     span{
         padding-bottom: 1rem;
@@ -25,7 +26,7 @@ const sendHeart = css`
         }
     }
     button{
-        background: rgba(239,239,239, 0.4);
+        background: rgba(239,239,239, 0.5);
         border: 1px solid #efefef;
         border-radius: 8px;
         cursor: pointer;

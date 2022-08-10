@@ -87,6 +87,7 @@ const Layout = ({children})=>{
             
             const progressIndex = getIndex(scrollY, checkBottom, 0);
             transformProgress(progressIndex, childHeightList.length);
+            callRollingPaper(progressIndex);
         }
 
         const calculateProgressDesktop = ()=>{
@@ -96,6 +97,22 @@ const Layout = ({children})=>{
     
             const progressIndex = getIndex(scrollY, checkBottom, 0);
             transformProgress(progressIndex, childHeightList.length);
+            callRollingPaper(progressIndex);
+        }
+
+        const callRollingPaper = (index)=>{
+            if(index===2 || index===5){
+                const iframe = children[5].props.forwardRef.current.querySelector('iframe');
+                const {src} = iframe.dataset;
+                if(iframe.src===''){
+                    setTimeout(()=>{
+                        iframe.src = src;
+                        iframe.onload = ()=>{
+                            iframe.style.display = 'block';
+                        }
+                    }, 1000);
+                }
+            }
         }
 
         if(children.length>0){

@@ -71,6 +71,7 @@ const Gallery = ()=>{
                 centeredSlides={true}
                 spaceBetween={10}
                 grabCursor={true}
+                slideToClickedSlide={true}
                 pagination={{clickable: true}}
                 modules={[Pagination]}
             >

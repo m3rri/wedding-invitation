@@ -67,11 +67,11 @@ const divisionLine = css`
     width: 70%;
 `;
 
-const picture = css`
-    margin: 0;
-    width: 100%;
-    pointer-events : none;
-`;
+// const picture = css`
+//     margin: 0;
+//     width: 100%;
+//     pointer-events : none;
+// `;
 
 const callBox = css`
     background: #fff;
@@ -118,11 +118,11 @@ const Greeting = ({type})=>{
                 after={NAME.BRIDE.substring(1)}
             />
         </div>
-        <img
+        {/* <img
             src={`${process.env.PUBLIC_URL}/img/secondary.jpg`}
             css={picture}
             alt="wedding secondary"
-        />
+        /> */}
         <div css={callBox}>
           <a style={{borderRight: "0.5px solid #ddd"}} href={callTarget[0][1]}>
             <FontAwesomeIcon icon={callTarget[0][2]}/> {callTarget[0][0]}에게 연락하기
