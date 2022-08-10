@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {isMobile} from 'react-device-detect';
 import { css } from "@emotion/react";
 import styled  from '@emotion/styled';
@@ -49,12 +49,12 @@ const ProgressBar = styled.div(props=>({
 }));
 
 const Layout = ({children})=>{
-    let childHeightList = [];
+    const [childHeightList, setChildHeightList] = useState([]);
     const [transformBride, setTransformBride] = useState("translate(-90%)");
     const [transformGroom, setTransformGroom] = useState("translate(90%)");
     const [emogi, setEmogi] = useState('none');
 
-    useEffect(()=>{
+    const progressCalculator = useCallback(async ()=>{
         const {current} = (children.length ? children[0] : children).props.forwardRef;
 
         const calculateProgress = ()=>{
@@ -119,9 +119,13 @@ const Layout = ({children})=>{
                                 }
                             })-child;
                         });
-            childHeightList = Array.from(list);
+            setChildHeightList(Array.from(list));
         }
-    }, [childHeightList]);
+    }, [childHeightList, children]);
+
+    useEffect(()=>{
+        progressCalculator();
+    }, [progressCalculator]);
 
     return <>
         <header css={progressBack}>
