@@ -54,11 +54,11 @@ const App = ()=>{
       <Article forwardRef={mapRef} background={mapBackground}>
         <Map/>
       </Article>
-      <Article forwardRef={rollRef}>
-        <Message pageHeight={pageHeight}/>
-      </Article>
       <Article forwardRef={heartRef}>
         <SendHeart/>
+      </Article>
+      <Article forwardRef={rollRef}>
+        <Message pageHeight={pageHeight}/>
       </Article>
     </Layout>;
 }

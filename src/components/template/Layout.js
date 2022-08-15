@@ -101,16 +101,14 @@ const Layout = ({children})=>{
         }
 
         const callRollingPaper = (index)=>{
-            if(index===5){
-                const iframe = children[5].props.forwardRef.current.querySelector('iframe');
+            if(index===6){
+                const iframe = children[6].props.forwardRef.current.querySelector('iframe');
                 const {src} = iframe.dataset;
                 if(iframe.src===''){
-                    setTimeout(()=>{
-                        iframe.src = src;
-                        iframe.onload = ()=>{
-                            iframe.style.display = 'block';
-                        }
-                    }, 1500);
+                    iframe.src = src;
+                    iframe.onload = ()=>{
+                        iframe.style.display = 'block';
+                    }
                 }
             }
         }

@@ -34,32 +34,42 @@ const appLink = css`
     background: #efefef;
     display: flex;
     flex-direction: row;
-    padding: 20px 0 15px;
+    padding: 1rem;
     width: 100%;
     span{
-        font-size: 14px;
-        margin: 0 auto 0 1rem;
-        &::before{
-            content: '어플로 보기'
-        }
+        margin-right: auto;
     }
     a{
-        margin: 0 1rem;
+        color: inherit;
+        font-style: normal;
+        margin: 0 0.8rem;
+        text-decoration: none;
     }
+    a span{
+        font-size: 16px;
+        margin-left: 0.5rem;
+    }
+`;
+
+const icon = css`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;
 
 const MapLink = ({name, src})=>{
     const url = name==='kakao' ? "https://map.kakao.com/link/search/웨딩스퀘어%20강변점"
     : "https://map.naver.com/v5/search/%EC%9B%A8%EB%94%A9%EC%8A%A4%ED%80%98%EC%96%B4%20%EA%B0%95%EB%B3%80%EC%A0%90/place/31761747";
-    const width = name==='kakao' ? 113 : 83;
-    const height = name==='kakao' ? 30 : 36;
+    const width = 47;
+    const height = 47;
 
-    return <a href={url} target={'_blank'} rel={'noreferrer'}>
+    return <a href={url} css={icon} target={'_blank'} rel={'noreferrer'}>
         <img
             src={src}
             height={height} width={width}
             alt="map application"
         />
+        <span css={{"&::before": {content: `'${name}'`}}}/>
     </a>;
 }
 
@@ -141,8 +151,8 @@ const Map = ()=>{
         <div css={site}/>
         <div css={appLink}>
             <span></span>
-            <MapLink name={'kakao'} src={`${process.env.PUBLIC_URL}/asset/kakao.png`}/>
-            <MapLink name={'naver'} src={`${process.env.PUBLIC_URL}/asset/naver.png`}/>
+            <MapLink name={'카카오 지도'} src={`${process.env.PUBLIC_URL}/asset/kakao.png`}/>
+            <MapLink name={'네이버 지도'} src={`${process.env.PUBLIC_URL}/asset/naver.png`}/>
         </div>
         <div css={description}>
             <p>

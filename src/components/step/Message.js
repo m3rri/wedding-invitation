@@ -27,6 +27,7 @@ const Message = ({pageHeight})=>{
           width="100%"
           height={pageHeight*0.8 < 560 ? 560 : pageHeight*0.8}
           css={message}
+          style={{"height":`${pageHeight}px`}}
           data-src="https://rollingpaper.site/rolls/927170"
         />
     </>

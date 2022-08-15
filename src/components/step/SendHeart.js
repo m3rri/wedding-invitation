@@ -116,8 +116,8 @@ const SendHeart = ()=>{
     return <>
         <div css={sendHeart}>
             <span></span>
-            <button onClick={()=>modalOpen('groom')}>신랑측</button>
-            <button onClick={()=>modalOpen('bride')}>신부측</button>
+            <button onClick={()=>modalOpen('groom')}>신랑측 계좌번호</button>
+            <button onClick={()=>modalOpen('bride')}>신부측 계좌번호</button>
         </div>
         <div id="modal">
             <ReactModal
