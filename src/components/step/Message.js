@@ -16,7 +16,7 @@ const messageTitle = css`
 const message = css`
     border: 0;
     display: none;
-    padding: 5rem 0 0;
+    padding: 5rem 0 2rem;
 `;
 
 const Message = ({pageHeight})=>{
@@ -27,8 +27,7 @@ const Message = ({pageHeight})=>{
           width="100%"
           height={pageHeight*0.8 < 560 ? 560 : pageHeight*0.8}
           css={message}
-          style={{"height":`${pageHeight}px`}}
-          data-src="https://rollingpaper.site/rolls/927170"
+          data-src="https://rollingpaper.site/rolls/928817"
         />
     </>
 }

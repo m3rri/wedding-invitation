@@ -2,6 +2,7 @@ const DAY_NAME = [
   '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'
 ];
 const W_DAY = new Date(2022, 9, 1, 12, 30);
+const W_DAY_FOR_D_DAY = new Date(2022, 9, 1, 0, 0);
 
 const weddingDate = {
   yyyy: W_DAY.getFullYear(),
@@ -13,4 +14,4 @@ const weddingDate = {
 };
 
 export default weddingDate;
-export {W_DAY, DAY_NAME};
+export {W_DAY, W_DAY_FOR_D_DAY, DAY_NAME};

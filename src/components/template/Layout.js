@@ -101,14 +101,12 @@ const Layout = ({children})=>{
         }
 
         const callRollingPaper = (index)=>{
-            if(index===6){
+            if(index>=6){
                 const iframe = children[6].props.forwardRef.current.querySelector('iframe');
                 const {src} = iframe.dataset;
                 if(iframe.src===''){
                     iframe.src = src;
-                    iframe.onload = ()=>{
-                        iframe.style.display = 'block';
-                    }
+                    iframe.style.display = 'block';
                 }
             }
         }

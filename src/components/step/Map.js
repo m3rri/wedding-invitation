@@ -60,14 +60,15 @@ const icon = css`
 const MapLink = ({name, src})=>{
     const url = name==='kakao' ? "https://map.kakao.com/link/search/웨딩스퀘어%20강변점"
     : "https://map.naver.com/v5/search/%EC%9B%A8%EB%94%A9%EC%8A%A4%ED%80%98%EC%96%B4%20%EA%B0%95%EB%B3%80%EC%A0%90/place/31761747";
-    const width = 47;
-    const height = 47;
+    const width = 37;
+    const height = 37;
 
     return <a href={url} css={icon} target={'_blank'} rel={'noreferrer'}>
         <img
             src={src}
             height={height} width={width}
             alt="map application"
+            style={{"borderRadius": "0.3rem"}}
         />
         <span css={{"&::before": {content: `'${name}'`}}}/>
     </a>;
