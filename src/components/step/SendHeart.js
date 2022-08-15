@@ -8,7 +8,7 @@ import {ACCOUNT} from '../../resource/People';
 
 const sendHeart = css`
     background: rgba(239,239,239, 0.3);
-    padding: 2rem 0 1rem;
+    padding: 2rem 0 2rem;
     width: 100%;
     span{
         padding-bottom: 1rem;
