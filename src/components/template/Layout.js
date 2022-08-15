@@ -106,7 +106,7 @@ const Layout = ({children})=>{
                 const {src} = iframe.dataset;
                 if(iframe.src===''){
                     iframe.src = src;
-                    iframe.style.display = 'block';
+                    setTimeout(()=>iframe.style.display = 'block', 500);
                 }
             }
         }
