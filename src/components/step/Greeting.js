@@ -87,6 +87,9 @@ const callBox = css`
         text-decoration: none;
         color: inherit;
     }
+    a:only-child{
+        width: 100%;
+    }
 `;
 
 const Greeting = ({type})=>{
@@ -97,6 +100,8 @@ const Greeting = ({type})=>{
         callTarget = [['신랑 아버지', PHONE.G_FATHER, faPhone], ['신랑 어머니', PHONE.G_MOTHER, faPhone]];
     }else if(type==='42'){
         callTarget = [['신부 아버지', PHONE.B_FATHER, faPhone], ['신부 어머니', PHONE.B_MOTHER, faPhone]];
+    }else if(type==='4e'){
+        callTarget = [['신부 아버지', PHONE.B_FATHER, faPhone]];
     }else{
         callTarget = [['신랑', PHONE.GROOM, faComments], ['신부', PHONE.BRIDE, faComments]];
     }
@@ -127,9 +132,11 @@ const Greeting = ({type})=>{
           <a style={{borderRight: "0.5px solid #ddd"}} href={callTarget[0][1]}>
             <FontAwesomeIcon icon={callTarget[0][2]}/> {callTarget[0][0]}에게 연락하기
           </a>
+          {callTarget.length>1&&
           <a href={callTarget[1][1]}>
             <FontAwesomeIcon icon={callTarget[1][2]}/> {callTarget[1][0]}에게 연락하기
           </a>
+          }
         </div>
     </>;
 }
