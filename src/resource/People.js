@@ -10,32 +10,32 @@ const NAME = {
 };
 
 const PHONE = {
-    GROOM: 'sms:01058993050',
-    BRIDE: 'sms:01088802508',
-    G_FATHER: 'tel:01024973052',
-    G_MOTHER: 'tel:01092063052',
-    B_FATHER: 'tel:01089072507',
-    B_MOTHER: 'tel:01064732507'
+    GROOM: 'sms:01000000000',
+    BRIDE: 'sms:01000000000',
+    G_FATHER: 'tel:01000000000',
+    G_MOTHER: 'tel:01000000000',
+    B_FATHER: 'tel:01000000000',
+    B_MOTHER: 'tel:01000000000'
 };
 
 const ACCOUNT = {
     groom:[{
         name: NAME.GROOM,
-        bank: '신한은행',
-        account: '110-258-259800'
+        bank: 'ㅇㅇ은행',
+        account: '00-0000-000000'
     },{
         kakao: true,
         name: '신랑',
-        account: '281006011000035848853992'
+        account: '00000000000000000000000000'
     }],
     bride:[{
         name: NAME.B_FATHER,
-        bank: '국민은행',
-        account: '022-24-0561-224'
+        bank: 'ㅇㅇ은행',
+        account: '000-00-0000-000'
     },{
         kakao: true,
         name: '신부',
-        account: '281006011161815290004942'
+        account: '00000000000000000000000000'
     }]
 };
 
